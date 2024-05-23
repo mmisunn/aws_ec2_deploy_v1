@@ -13,16 +13,18 @@ public class HelloController {
 
     @GetMapping("/aws/v1")
     public String hello(@RequestParam(defaultValue = "1") Integer number){
+		 String answer = "<h1>number 값이 " + number+"로 요청했습니다.</h1>";
         if(number == 1){ // info 로그
             log.info("/aws/v1 이 호출되었어요. info 로그 #####################################");
 			//return "<h1>number 값이 1로 요청했습니다.</h1>";
         }else if(number == -1){ // error 로그
             log.error("/aws/v1 이 호출되었어요. error 로그 #####################################");
-			// return "<h1>number 값이 -1로 요청했습니다.</h1>";
+			//return "<h1>number 값이 -1로 요청했습니다.</h1>";
         }else if(number == 0){ // warn 로그
             log.warn("/aws/v1 이 호출되었어요. warn 로그 #####################################");
-			//return "<h1>number 값이 0로 요청했습니다.</h1>";
+			answer = "<h1>aaaa</h1>";
         }
-		return "<h1>number 값이 " + number+"로 요청했습니다.</h1>";
+		return answer;
+		
     }
 }
